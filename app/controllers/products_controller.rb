@@ -27,6 +27,13 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      flash[:notice] = "The comment has been updated."
+      redirect_to product_path(@product)
+    else
+      render :edit
+    end
   end
 
   def destroy
