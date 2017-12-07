@@ -1,1 +1,18 @@
-test
+<h1 class='jumbotron' >Bon Appétizers</h1>
+
+<div class="container">
+
+<h2>Catering Package</h1>
+
+  <% if @products.length > 0 %>
+    <ul>
+      <% @products.each do |product| %>
+        <li><%= link_to product.name, product_path(product) %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h4>Sorry, we don't have these posted yet. Check back soon</h4>
+  <% end %>
+
+  <%= link_to "New Service", new_product_path %>
+</div>
