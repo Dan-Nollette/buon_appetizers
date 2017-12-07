@@ -10,7 +10,16 @@
 
   <body>
     <p>
-      <li><%=link_to "log out", destroy_user_session_path, method: :delete %></li>
+      <li>
+        <% if current_user  %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+        <% else %>
+          <%= link_to "Log In", new_user_session_path%>
+          </li><li>
+          <%= link_to "Sign up", new_user_registration_path%>
+        <%end %>
+      </li>
       <li><a href="/">Home</a></li>
       <%= yield(:navbar) %>
     </p>

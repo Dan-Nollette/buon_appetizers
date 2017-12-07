@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
 
   def index
-
     @products = Product.all
   end
 
@@ -19,17 +18,25 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
-      flash[:notice] = "Product successfully added!"
-      redirect_to products_path(@product)
+    if current_user && current_user.is_admin
+      @product = Product.new(product_params)
+      if @product.save
+        flash[:notice] = "Product successfully added!"
+        redirect_to products_path(@product)
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to new_user_registration_path
     end
   end
 
   def edit
-    @product = Product.find(params[:id])
+    if current_user && current_user.is_admin
+      @product = Product.find(params[:id])
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
   def update
