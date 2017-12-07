@@ -8,9 +8,7 @@
       <% @product.comments.each do |comment| %>
         <li>
           <ul>
-            <li><p><%= comment.content_body %></p></li>
-            <li><p>Rating: <%= comment.rating %> stars</p></li>
-            <li><p>By: <%= comment.author %></p> </li>
+            <li><p><%= comment.text_body %></p></li>
             <%= link_to "Edit", edit_product_comment_path(@product, comment) %> |
             <%= link_to "Delete", product_comment_path(@product, comment),
                                     :data => {:confirm => "Are you sure?",
