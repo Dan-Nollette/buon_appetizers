@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <p>
+      <li><%=link_to "log out", destroy_user_session_path, method: :delete %></li>
+      <li><a href="/">Home</a></li>
+      <%= yield(:navbar) %>
+    </p>
     <%= yield %>
   </body>
 </html>

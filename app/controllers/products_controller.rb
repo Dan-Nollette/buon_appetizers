@@ -1,11 +1,17 @@
 class ProductsController < ApplicationController
 
   def index
+
     @products = Product.all
   end
 
   def new
-    @product = Product.new
+    if current_user && current_user.is_admin
+      @product = Product.new
+      render :new
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
   def show

@@ -40,6 +40,6 @@ class CommentsController < ApplicationController
 
 private
   def comment_params
-      params.require(:comment).permit(:text_body, :product_id).merge(current_user)
+    params.require(:comment).permit(:text_body, :product_id).merge("user_id" => current_user.id.to_s)
   end
 end

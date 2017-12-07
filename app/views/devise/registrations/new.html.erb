@@ -2,6 +2,10 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+  <% content_for(:navbar) do %>
+
+    <li><%=link_to "Sign in", new_user_session_path %></li>
+  <% end %>
 
   <div class="field">
     <%= f.label :email %><br />
