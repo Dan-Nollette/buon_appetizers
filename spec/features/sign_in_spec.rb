@@ -11,5 +11,4 @@ describe "sign up successfully" do
     click_button("Log in")
     expect(page).to have_content 'Buon Appétizers'
   end
-
 end
