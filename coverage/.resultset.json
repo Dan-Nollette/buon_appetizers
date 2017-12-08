@@ -938,11 +938,10 @@
       ],
       "/Users/Guest/Desktop/buon_appetizers/app/models/comment.rb": [
         1,
-        null,
-        null,
         1,
         1,
-        null,
+        1,
+        1,
         1,
         null
       ],
@@ -973,6 +972,6 @@
         null
       ]
     },
-    "timestamp": 1512692268
+    "timestamp": 1512692550
   }
 }
