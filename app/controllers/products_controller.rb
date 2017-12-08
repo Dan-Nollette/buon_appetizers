@@ -50,9 +50,13 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to products_path
+    if current_user && current_user.is_admin
+      @product = Product.find(params[:id])
+      @product.destroy
+      redirect_to products_path
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
 private
