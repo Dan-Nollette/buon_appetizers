@@ -16,9 +16,11 @@ _A Friday coding project exploring Rails._
 
 3: run `rails db:create`
 
-4: run `rails s`
+4: run `rails db:migrate`
 
-5: open http://localhost:3000 in your web browser
+5: run `rails s`
+
+6: open http://localhost:3000 in your web browser
 
 ## Known Bugs
 
